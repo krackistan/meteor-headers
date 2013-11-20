@@ -37,7 +37,8 @@ WebApp.connectHandlers.use('/headersHelper.js', function(req, res, next) {
  * use to re-associate with the user's livedata session (see above)
  */
 Meteor.methods({
-  'headersToken': function(token) {
+  // We are overriding this
+  'headersTokenOverriden': function(token) {
     if (headers.list[token]) {
       this._sessionData.headers = headers.list[token];
       delete headers.list[token];
